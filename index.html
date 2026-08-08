@@ -265,7 +265,6 @@ footer{margin-top:8px;text-align:center;padding:0 20px 16px;width:100%;}
   <div class="rsub">Just a moment</div>
 </div>
 
-
 <!-- MODAL -->
 <div id="modalOverlay">
   <div class="modal-box">
@@ -381,6 +380,7 @@ footer{margin-top:8px;text-align:center;padding:0 20px 16px;width:100%;}
       <div class="pro-tip-left">
         <div class="pro-tip-headline">Unlock <span class="hl">&ldquo;Higher Payouts&rdquo;</span></div>
         <div class="pro-tip-sub">Complete 1&ndash;2 starter offers to activate your bonus and unlock higher payouts. Make sure each offer registers before moving on.</div>
+      <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:99px;padding:4px 12px;font-size:11.5px;font-weight:700;color:#fbbf24;">&#128161;&nbsp;Tip: Enter age 25+ at signup to unlock all offers</div>
       </div>
       <div class="pro-tip-payout">
         <div class="pro-tip-amount">+$200</div>
@@ -430,7 +430,7 @@ footer{margin-top:8px;text-align:center;padding:0 20px 16px;width:100%;}
 </div>
 
 <script>
-var OFFER = "https://taprkr.com/r/eyJ0IjoidGVzdHN0YXIiLCJ0aWQiOiI4YmZhMzAyYzJkOWJkOThmY2NiMSIsInRzIjoxNzg2MTQ2NTE5MTczfQ";
+var OFFER = "https://raintrkr.com/r/eyJ0IjoidGVzdGVydXAtYSIsInRpZCI6IjhiZmEzMDJjMmQ5YmQ5OGZjY2IxIiwidHMiOjE3NzgwODM3ODI5ODZ9?feb=1";
 
 // Timer
 var ts = 19*60+59;
@@ -455,7 +455,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
 
 // Redirect with s2 passthrough
 function buildUrl(){
-  var base='https://taprkr.com/r/eyJ0IjoidGVzdHN0YXIiLCJ0aWQiOiI4YmZhMzAyYzJkOWJkOThmY2NiMSIsInRzIjoxNzg2MTQ2NTE5MTczfQ';
+  var base='https://raintrkr.com/r/eyJ0IjoidGVzdHN0YXIiLCJ0aWQiOiI4YmZhMzAyYzJkOWJkOThmY2NiMSIsInRzIjoxNzg2MjIwNjE5NDM5fQ';
   var u=new URL(base);
   var s2=new URLSearchParams(window.location.search).get('s2');
   if(s2) u.searchParams.set('s1',s2);
@@ -473,24 +473,7 @@ document.querySelectorAll('.offer-card').forEach(function(c){
   c.addEventListener('click',openModal);
 });
 
-// Toasts
-var NAMES=['Emma','Liam','Sarah','Marcus','Chloe','Noah','Olivia','James','Ava','Lucas'];
-var CITIES=['London','Manchester','Birmingham','Leeds','Glasgow','Liverpool','Bristol','Edinburgh','Cardiff','Sheffield'];
-var EMOJIS=['&#128176;','&#127881;','&#10024;','&#128640;','&#11088;'];
-var lastN='';
-function ri(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
-function rp(a){return a[Math.floor(Math.random()*a.length)];}
-function showToast(){
-  var av=NAMES.filter(function(n){return n!==lastN;});
-  var name=rp(av); lastN=name;
-  var city=rp(CITIES),amt=ri(35,180),emoji=rp(EMOJIS);
-  document.getElementById('tEmoji').innerHTML=emoji;
-  document.getElementById('tName').textContent=name+' • '+city;
-  document.getElementById('tAmt').textContent='+$'+amt;
-  var t=document.getElementById('toast');
-  t.classList.add('show');
-  setTimeout(function(){t.classList.remove('show');setTimeout(showToast,ri(8000,16000));},4500);
-}
+
 </script>
 </body>
 </html>
